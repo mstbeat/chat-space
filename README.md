@@ -7,6 +7,7 @@
 |password|string|null: false|
 |name|string|null: false, unique: true|
 ### Association
+- has_many :groups_users
 - has_many :groups, through: :groups_users
 - has_many :chats
 
@@ -16,6 +17,7 @@
 |------|----|-------|
 |name|string|null: false, unique: true|
 ### Association
+- has_many :groups_users
 - has_many :users, through: :groups_users
 - has_many :chats
 
@@ -23,7 +25,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|text||
-|text|text|null: false|
+|text|text||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
