@@ -1,22 +1,20 @@
-.flash-box
-  グループを作成しました
 .chat-side
   .side-header
     .side-header__box
       .side-header__box__user-name
-        ユーザー名
+        = current_user.name
       .side-header__box__menu
         .side-header__box__menu__new-group
           = link_to root_path do
             = fa_icon 'edit'
         .side-header__box__menu__edit-user
-          = link_to root_path do
+          = link_to edit_user_path(current_user) do
             = fa_icon 'cog'
   .groups
     .group
       .group__group-name
         グループ名
-      .group__latest-message
+      .group__message
         直近のメッセージ
       
 .chat-main
