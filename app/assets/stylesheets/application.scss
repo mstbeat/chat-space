@@ -1,0 +1,194 @@
+@import "./reset";
+@import "./variable";
+@import 'font-awesome';
+
+$color-white: #ffffff;
+$color-blue: #38aef0;
+$color-gray: #434a54;
+$color-light-gray: #999999;
+
+.flash-box {
+  background-color: $color-blue;
+  text-align: center;
+  color: $color-white;
+  font-size: 1rem;
+  width: 100vw;
+  font-weight: lighter;
+  height: 30px;
+  line-height: 30px;
+}
+.chat-side {
+  width: 300px;
+  color: $color-white;
+  float: left;
+  .side-header {
+    background-color: #253141;
+    height: 100px;
+    align-items: center;
+    padding: 0 20px;
+    display: flex;
+    &__box {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      &__user-name {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+      }
+      &__menu {
+        display: flex;
+        margin-left: 0.3rem;
+        &__new-group {
+          font-size: 1.3rem;
+          .fa {
+            color: $color-white;
+            display: inline-block;
+            font-size: inherit;
+          }
+        }
+        &__edit-user {
+          margin-left: 0.3rem;
+          .fa {
+            color: $color-white;
+            display: inline-block;
+            font-size: inherit;
+          }
+        }
+      }
+    }
+  }
+  .groups {
+    height: calc(100vh - 150px);
+    background-color: #2f3e51;
+    padding: 20px 20px 0;
+    overflow: scroll;
+    .group {
+      margin-bottom: 40px;
+      &__group-name {
+        font-size: 15px;
+        font-weight: bold;
+        color: $color-white;
+        margin-bottom: 5px;
+      }
+      &__latest-message {
+        font-size: 11px;
+        font-weight: bold;
+        color: $color-white;
+      }
+    }
+  }
+}
+
+.chat-main {
+  width: calc(100vw - 300px);
+  float: left;
+  .main-header {
+    height: 100px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #eeeeee;
+    overflow: scroll;
+    &__left-box {
+      margin-top: 35px;
+      &__current-group {
+        font-size: 20px;
+        color: #333333;
+        margin-bottom: 15px;
+      }
+      &__member-list {
+        font-size: 12px;
+        color: $color-light-gray;
+        display: flex;
+      }
+    }
+    &__edit-btn {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      margin-top: 28px;
+      border: solid 1px $color-blue;
+      position: absolute;
+      right: 40px;
+    }
+  }
+  .messages {
+    height: calc(100vh - 313px);
+    padding: 46px 40px;
+    background-color: #fafafa;
+    overflow: scroll;
+    .message {
+      padding-bottom: 40px;
+      &__upper-info {
+        display: flex;
+        margin-bottom: 10px;
+        &__talker {
+          font-size: 16px;
+          font-weight: bold;
+          color: $color-gray;
+        }
+        &__date {
+          font-size: 12px;
+          color: $color-light-gray;
+          margin-left: 10px;
+        }
+      }
+      &__text {
+        font-size: 14px;
+        color: $color-gray;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .form {
+    height: 50px;
+    padding: 20px 40px 20px 40px;
+    background-color: #dddddd;
+    .new-message {
+      display: flex;
+      justify-content: space-between;
+      .input-box {
+        position: relative;
+        width: calc(100vw - 100px);
+        margin: 0 10px 0 10px;
+        .form {
+          height: 50px;
+        }
+        &__text {
+          height: 50px;
+          width: 100%;
+          font-size: 16px;
+          color: $color-gray;
+          padding: 0 0 0 10px;
+          border-style: none;
+        }
+        &__image {
+          font-size: 1.3rem;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+          .fa {
+            display: inline-block;
+            font-size: inherit;
+            color: black;
+          }
+          &__file {
+            display: none;
+          }
+        }
+      }
+      .submit-btn {
+        background-color: $color-blue;
+        margin-left: 15px;
+        height: 50px;
+        width: 100px;
+        padding: 0 30px;
+        color: $color-white;
+        cursor: pointer;
+      }
+    }
+  }
+}
