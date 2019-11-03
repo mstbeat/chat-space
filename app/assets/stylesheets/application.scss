@@ -4,6 +4,8 @@
 @import "modules/user";
 @import "config/colors";
 @import "modules/flash";
+@import "modules/group";
+@import "modules/side_bar";
 
 .flash-box {
   background-color: $light_blue;
@@ -19,7 +21,7 @@
   width: 300px;
   color: $white;
   float: left;
-  .side-header {
+  .header {
     background-color: #253141;
     height: 100px;
     align-items: center;
@@ -29,26 +31,18 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
-      &__user-name {
+      &__name {
         font-size: 16px;
         font-weight: bold;
         margin: 0;
         padding: 0;
       }
-      &__menu {
+      &__lists {
         display: flex;
         margin-left: 0.3rem;
-        &__new-group {
+        &__list {
           font-size: 1.3rem;
-          .fa {
-            color: $white;
-            display: inline-block;
-            font-size: inherit;
-          }
-        }
-        &__edit-user {
-          margin-left: 0.3rem;
-          .fa {
+          .icon {
             color: $white;
             display: inline-block;
             font-size: inherit;
@@ -64,7 +58,7 @@
     overflow: scroll;
     .group {
       margin-bottom: 40px;
-      &__group-name {
+      &__name {
         font-size: 15px;
         font-weight: bold;
         color: $white;
