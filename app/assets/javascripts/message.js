@@ -1,24 +1,23 @@
 $(function() {
 
-
   function buildMessage(message){
     var image = ""
     message.image ? image = `<img src="${message.image}">` : image = ""
 
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="message__upper-info">
-                  <div class="message__upper-info__talker">
-                    ${message.user.name}
-                  </div>
-                  <div class="message__upper-info__date">
-                    ${message.created_at}
-                  </div>
+                    <div class="message__upper-info__talker">
+                      ${message.user_name}
+                    </div>
+                    <div class="message__upper-info__date">
+                      ${message.created_at}
+                    </div>
                   </div>
                   <div class="message__text">
-                  <p class="message__text__content">
-                    ${message.content}
-                  </p>
-                    ${image}
+                    <p class="message__text__content">
+                      ${message.content}
+                    </p>
+                      ${image}
                   </div>
                 </div>`
     return html;
@@ -50,4 +49,28 @@ $(function() {
       $('.submit-btn').removeAttr('disabled')
     })
   });
+
+  var reloadMessages = function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.message:last').data("message-id");
+      $.ajax({
+        url: "api/messages",
+        type: 'GET',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function (message) {
+          insertHTML = buildMessage(message);
+          $('.messages').append(insertHTML);
+        })
+        $('.messages').animate({scrollTop : $('.messages')[0].scrollHeight});
+      })
+      .fail(function() {
+        alert('自動更新に失敗しました');
+      })
+    }
+  };
+  setInterval(reloadMessages, 5000);
 });
