@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
 
   function addUser(user) {
     let html =  `
@@ -36,10 +36,11 @@ $(function(){
 
   $("#user-search-field").on("keyup", function(){
     let input = $("#user-search-field").val();
+    let group_id = $(".chat__group__id").val();
     $.ajax({
       type: 'GET',
       url:  '/users',
-      data: { keyword: input },
+      data: { keyword: input, group_id: group_id },
       dataType: 'json'
     })
       .done(function(users){
