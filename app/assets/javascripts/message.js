@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function(){
 
   function buildMessage(message){
     var image = ""
@@ -21,7 +21,7 @@ $(function() {
                   </div>
                 </div>`
     return html;
-  }
+  } 
 
 
   $('.form').on('submit', function(e){
